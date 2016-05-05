@@ -1,0 +1,47 @@
+my_pocket_loginpage:
+    path:     /
+    defaults: { _controller: myPocketBundle:Default:login }
+
+my_pocket_acceuilpage:
+    path:     /acceuil
+    defaults: { _controller: myPocketBundle:Default:acceuil }
+
+my_pocket_nouvelledepensepage:
+    path:     /depense
+    defaults: { _controller: myPocketBundle:Default:nouvelledepense }
+    
+my_pocket_editdepensepage:
+    path:     /editdepense
+    defaults: { _controller: myPocketBundle:Default:editdepense }        
+    
+my_pocket_listedepensepage:
+    path:     /listedepense
+    defaults: { _controller: myPocketBundle:Default:listedepense }
+    
+my_pocket_nouveaurevenupage:
+    path:     /revenu
+    defaults: { _controller: myPocketBundle:Default:nouveaurevenu }
+    
+my_pocket_editrevenupage:
+    path:     /editrevenu
+    defaults: { _controller: myPocketBundle:Default:editrevenu }    
+    
+my_pocket_listerevenupage:
+    path:     /listerevenu
+    defaults: { _controller: myPocketBundle:Default:listerevenu }
+    
+my_pocket_chartdepensepage:
+    path:     /statistiquedepense
+    defaults: { _controller: myPocketBundle:Default:statdepense }
+    
+my_pocket_chartrevenupage:
+    path:     /statistiquerevenu
+    defaults: { _controller: myPocketBundle:Default:statrevenu }
+    
+my_pocket_chartsoldepage:
+    path:     /statistiquesolde
+    defaults: { _controller: myPocketBundle:Default:statsolde }   
+    
+my_pocket_deconnexionpage:
+    path:     /
+    defaults: { _controller: myPocketBundle:Default:deconnexion }

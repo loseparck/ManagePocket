@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>My Pocket | Statistique Revenu</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <link href="{{ asset('assets/admin/pages/css/css.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets/global/css/components-md.css')}}" id="style_components" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets/global/css/plugins-md.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets/admin/layout2/css/layout.css')}}" rel="stylesheet" type="text/css"/>
+        <link id="style_color" href="{{ asset('assets/admin/layout2/css/themes/grey.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets/admin/layout2/css/custom.css')}}" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="favicon.ico"/>
+    </head>
+    <body class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed page-sidebar-fixed">
+        {% include "myPocketBundle:public:header.html.twig" %}
+        <div class="page-container">
+            {% include "myPocketBundle:public:menu.html.twig" %}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <h3 class="page-title">
+                        Statistique Revenu
+                    </h3>
+                    <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a>Statistique</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                             <li>
+                                <a>Revenu</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet box blue-madison">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-calendar"></i>Date
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="clearfix">
+                                    <form method="post" action="{{ path('my_pocket_chartrevenupage')}}">
+                                        <div class="col-md-1"><input type="submit" class="btn btn-info" style="margin-top: 9px;width: 32px;background-image: url('/app/symfony/web/assets/admin/layout2/img/left.png')!important;background-repeat: no-repeat;background-position: center;" value=" " name="pred" ></div>
+                                        <div class="col-md-4">
+                                            <input type="hidden" name="annee" value="{{y}}"/>
+                                            <input type="hidden" name="mois" value="{{m}}"/>
+                                        </div>  
+                                        <div class="col-md-1" style="text-align:center;height:50px;background-image: url('{{ asset('assets/admin/layout2/img/calendar.png')}}');background-repeat: no-repeat;"><span>{{y}}</span><br/><span style="color:#578ebe">{{m}}</span></div>
+                                    <div class="col-md-5"></div>
+                                    <div class="col-md-1"><input type="submit" class="btn btn-info" style="margin-top: 9px;width: 32px;background-image: url('/app/symfony/web/assets/admin/layout2/img/right.png')!important;background-repeat: no-repeat;background-position: center;" value=" " name="suiv"></div>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-light green-meadow" href="javascript:;">
+                                    <div class="visual">
+                                        <i class="icon-wallet"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            {{rv}}
+                                        </div>
+                                        <div class="desc">
+                                            Revenu
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-light blue-soft" href="javascript:;">
+                                    <div class="visual">
+                                        <i class="fa fa-money"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            {{s}}
+                                        </div>
+                                        <div class="desc">
+                                            Solde
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-bar-chart font-red-haze"></i>
+                                        <span class="caption-subject bold uppercase font-red-haze"> Statistique Revenu : Catégorie</span>
+                                    </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse">
+                                        </a>
+                                        <a href="javascript:;" class="fullscreen">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div id="pie_chart_3" class="chart" style="height: 600px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-bar-chart font-red-haze"></i>
+                                        <span class="caption-subject bold uppercase font-red-haze"> Statistique Revenu de l'année : {{y}}</span>
+                                    </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse">
+                                        </a>
+                                        <a href="javascript:;" class="fullscreen">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div id="chart_5" class="chart" style="height: 600px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <script src="{{ asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-migrate.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.cokie.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/scripts/metronic.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/admin/layout2/scripts/layout.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/admin/layout2/scripts/demo.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.resize.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.pie.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.stack.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.crosshair.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.categories.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/typeahead/handlebars.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/amcharts.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/serial.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/pie.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/radar.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/light.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/patterns.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/chalk.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/ammap/ammap.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/ammap/maps/js/worldLow.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amstockcharts/amstock.js')}}" type="text/javascript"></script>
+        <script>
+            jQuery(document).ready(function () {
+                Metronic.init();
+                Layout.init();
+                Demo.init();
+                initChartSample5();
+                ChartsFlotcharts.init();
+                ChartsFlotcharts.initPieCharts();
+            });
+            var initChartSample5 = function() {
+		        var chart = AmCharts.makeChart("chart_5", {
+		            "theme": "light",
+		            "type": "serial",
+		            "startDuration": 2,
+
+		            "fontFamily": 'Open Sans',
+		            
+		            "color":    '#888',
+                            {%if smr[0][1]== null %}{% set j = 0 %}{% endif %}
+                            {%if not smr[0][1]== null %}{% set j = smr[0][1] %}{% endif %}
+                            {%if smr[1][1]== null %}{% set f = 0 %}{% endif %}
+                            {%if not smr[1][1]== null %}{% set f = smr[1][1] %}{% endif %}
+                            {%if smr[2][1]== null %}{% set m = 0 %}{% endif %}
+                            {%if not smr[2][1]== null %}{% set m = smr[2][1] %}{% endif %}
+                            {%if smr[3][1]== null %}{% set a = 0 %}{% endif %}
+                            {%if not smr[3][1]== null %}{% set a = smr[3][1] %}{% endif %}
+                            {%if smr[4][1]== null %}{% set ma = 0 %}{% endif %}
+                            {%if not smr[4][1]== null %}{% set ma = smr[4][1] %}{% endif %}
+                            {%if smr[5][1]== null %}{% set ju = 0 %}{% endif %}
+                            {%if not smr[5][1]== null %}{% set ju = smr[5][1] %}{% endif %}
+                            {%if smr[6][1]== null %}{% set ji = 0 %}{% endif %}
+                            {%if not smr[6][1]== null %}{% set ji = smr[6][1] %}{% endif %}
+                            {%if smr[7][1]== null %}{% set ao = 0 %}{% endif %}
+                            {%if not smr[7][1]== null %}{% set ao = smr[7][1] %}{% endif %}
+                            {%if smr[8][1]== null %}{% set sp = 0 %}{% endif %}
+                            {%if not smr[8][1]== null %}{% set sp = smr[8][1] %}{% endif %}
+                            {%if smr[9][1]== null %}{% set o = 0 %}{% endif %}
+                            {%if not smr[9][1]== null %}{% set o = smr[9][1] %}{% endif %}
+                            {%if smr[10][1]== null %}{% set n = 0 %}{% endif %}
+                            {%if not smr[10][1]== null %}{% set n = smr[10][1] %}{% endif %}
+                            {%if smr[11][1]== null %}{% set d = 0 %}{% endif %}
+                            {%if not smr[11][1]== null %}{% set d = smr[11][1] %}{% endif %}
+		            "dataProvider": [
+                                {
+		                "Mois": "Janvier",
+		                "Montant":{{j}},
+		                "color": "#FF0F00"
+		            }, {
+		                "Mois": "Février",
+		                "Montant": {{f}},
+		                "color": "#FF6600"
+		            },{
+		                "Mois": "Mars",
+		                "Montant": {{m}},
+		                "color": "#F8FF01"
+		            }, {
+		                "Mois": "Avril",
+		                "Montant": {{a}},
+		                "color": "#04D215"
+		            }, {
+		                "Mois": "Mai",
+		                "Montant": {{ma}},
+		                "color": "#0D8ECF"
+		            }, {
+		                "Mois": "Juin",
+		                "Montant": {{ju}},
+		                "color": "#0D52D1"
+		            }, {
+		                "Mois": "Juillet",
+		                "Montant": {{ji}},
+		                "color": "#2A0CD0"
+		            }, {
+		                "Mois": "Aout",
+		                "Montant": {{ao}},
+		                "color": "#8A0CCF"
+		            },
+		             {
+		                "Mois": "Septembre",
+		                "Montant": {{sp}},
+		                "color": "#DDDDDD"
+		            }, {
+		                "Mois": "Octobre",
+		                "Montant": {{o}},
+		                "color": "#999999"
+		            }, {
+		                "Mois": "Novembre",
+		                "Montant": {{n}},
+		                "color": "#333333"
+		            }, {
+		                "Mois": "Décembre",
+		                "Montant": {{d}},
+		                "color": "#000000"
+		            }
+		            
+		            ],
+		            "valueAxes": [{
+		                "position": "left",
+		                "axisAlpha": 0,
+		                "gridAlpha": 0
+		            }],
+		            "graphs": [{
+		                "balloonText": "[[category]]: <b>[[value]]</b>",
+		                "colorField": "color",
+		                "fillAlphas": 0.85,
+		                "lineAlpha": 0.1,
+		                "type": "column",
+		                "topRadius": 1,
+		                "valueField": "Montant"
+		            }],
+		            "depth3D": 40,
+		            "angle": 30,
+		            "chartCursor": {
+		                "categoryBalloonEnabled": false,
+		                "cursorAlpha": 0,
+		                "zoomable": false
+		            },
+		            "categoryField": "Mois",
+		            "categoryAxis": {
+		                "gridPosition": "start",
+		                "axisAlpha": 0,
+		                "gridAlpha": 0
+
+		            },
+		            "exportConfig": {
+		                "menuTop": "20px",
+		                "menuRight": "20px",
+		                "menuItems": [{
+		                    "icon": '/lib/3/images/export.png',
+		                    "format": 'png'
+		                }]
+		            }
+		        }, 0);
+
+		        $('#chart_5').closest('.portlet').find('.fullscreen').click(function() {
+		            chart.invalidateSize();
+		        });
+		    }
+                    
+            var ChartsFlotcharts = function() {
+                    return {
+                    //main function to initiate the module
+
+                    init: function() {
+
+                    Metronic.addResizeHandler(function() {
+                        Charts.initPieCharts();
+                        });
+                    },
+                    initPieCharts: function() {
+
+                            var data = [];
+                                    var series = 19;
+                                    series = series < 19 ? 19 : series;
+                                    data[0] = {
+                            label: "Maison",
+                                    data: {{cm[0]}},
+                                    color:"#2d2d2d"
+                            };
+                                    data[1] = {
+                            label: "Eléctricité",
+                                    data: {{cm[1]}},
+                                    color:"#fbe700"
+                            };
+                            data[2] = {
+                            label: "Eau",
+                                    data: {{cm[2]}},
+                                    color:"#0090ff"
+                            };
+                                    data[3] = {
+                            label: "Santé",
+                                    data: {{cm[3]}},
+                                    color:"#bd0707"
+                            };
+                            data[4] = {
+                            label: "Café",
+                                    data: {{cm[4]}},
+                                    color:"#4b2f00"
+                            };
+                                    data[5] = {
+                            label: "Nourriture",
+                                    data: {{cm[5]}},
+                                    color:"#808080"
+                            };
+                            data[6] = {
+                            label: "Shopping",
+                                    data: {{cm[6]}},
+                                    color:"#5900fb"
+                            };
+                                    data[7] = {
+                            label: "Habillement",
+                                    data: {{cm[7]}},
+                                    color:"#00c0ff"
+                            };
+                            data[8] = {
+                            label: "Banque",
+                                    data: {{cm[8]}},
+                                    color:"#c3b367"
+                            };
+                                    data[9] = {
+                            label: "Salaire",
+                                    data: {{cm[9]}},
+                                    color:"#009434"
+                            };
+                            data[10] = {
+                            label: "Education",
+                                    data: {{cm[10]}},
+                                    color:"#00c800"
+                            };
+                                    data[11] = {
+                            label: "Voiture",
+                                    data: {{cm[11]}},
+                                    color:"#003955"
+                            };
+                            data[12] = {
+                            label: "Transport",
+                                    data: {{cm[12]}},
+                                    color:"#ffae00"
+                            };
+                                    data[13] = {
+                            label: "Cadeaux",
+                                    data: {{cm[13]}},
+                                    color: "#ea5900"
+                            };
+                            data[14] = {
+                            label: "Equipements",
+                                    data: {{cm[14]}},
+                                    color:"#320101"
+                            };
+                                    data[15] = {
+                            label: "Loisirs",
+                                    data: {{cm[15]}},
+                                    color:"#109f9a"
+                            };
+                            data[16] = {
+                            label: "Animaux",
+                                    data: {{cm[16]}},
+                                    color:"#ae9d08"
+                            };
+                                    data[17] = {
+                            label: "Taxes",
+                                    data: {{cm[17]}},
+                                    color:"#f10505"
+                            };
+                            data[18] = {
+                            label: "Autres",
+                                    data: {{cm[18]}},
+                                    color:"#8f3e02"
+                            };
+                            
+                        if ($('#pie_chart_3').size() !== 0) {
+                            $.plot($("#pie_chart_3"), data, {
+                            series: {
+                            pie: {
+                            show: true,
+                                    radius: 1,
+                                    label: {
+                                    show: true,
+                                            radius: 3 / 4,
+                                            formatter: function(label, series) {
+                                            return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '% => ' + series.data[0][1] + '</div>';
+                                            },
+                                            background: {
+                                            opacity: 0.5
+                                            }
+                                    }
+                            }
+                            },
+                                    legend: {
+                                    show: false
+                                    }
+                            });
+                            }
+
+                            }
+                    };
+                    }();
+        </script>
+    </body>
+</html>

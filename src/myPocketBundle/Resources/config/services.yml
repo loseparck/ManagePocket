@@ -1,0 +1,4 @@
+services:
+#    my_pocket.example:
+#        class: myPocketBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

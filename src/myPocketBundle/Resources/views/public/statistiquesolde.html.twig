@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>My Pocket | Statistique Solde</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <link href="{{ asset('assets/admin/pages/css/css.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets/global/css/components-md.css')}}" id="style_components" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets/global/css/plugins-md.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets/admin/layout2/css/layout.css')}}" rel="stylesheet" type="text/css"/>
+        <link id="style_color" href="{{ asset('assets/admin/layout2/css/themes/grey.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets/admin/layout2/css/custom.css')}}" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="favicon.ico"/>
+    </head>
+    <body class="page-md page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed page-sidebar-fixed">
+        {% include "myPocketBundle:public:header.html.twig" %}
+        <div class="page-container">
+            {% include "myPocketBundle:public:menu.html.twig" %}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <h3 class="page-title">
+                        Statistique Solde
+                    </h3>
+                    <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a>Statistique</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                             <li>
+                                <a>Solde</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet box blue-madison">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-calendar"></i>Date
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="clearfix">
+                                    <form method="post" action="{{ path('my_pocket_chartsoldepage')}}">
+                                        <div class="col-md-1"><input type="submit" class="btn btn-info" style="margin-top: 9px;width: 32px;background-image: url('/app/symfony/web/assets/admin/layout2/img/left.png')!important;background-repeat: no-repeat;background-position: center;" value=" " name="pred" ></div>
+                                        <div class="col-md-4">
+                                            <input type="hidden" name="annee" value="{{y}}"/>
+                                            <input type="hidden" name="mois" value="{{m}}"/>
+                                        </div>  
+                                        <div class="col-md-1" style="text-align:center;height:50px;background-image: url('{{ asset('assets/admin/layout2/img/calendar.png')}}');background-repeat: no-repeat;"><span>{{y}}</span><br/><span style="color:#578ebe">{{m}}</span></div>
+                                    <div class="col-md-5"></div>
+                                    <div class="col-md-1"><input type="submit" class="btn btn-info" style="margin-top: 9px;width: 32px;background-image: url('/app/symfony/web/assets/admin/layout2/img/right.png')!important;background-repeat: no-repeat;background-position: center;" value=" " name="suiv"></div>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-light red-soft" href="javascript:;">
+                                    <div class="visual">
+                                        <i class="icon-basket"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            {{dp}}
+                                        </div>
+                                        <div class="desc">
+                                            Dépense
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-light blue-soft" href="javascript:;">
+                                    <div class="visual">
+                                        <i class="fa fa-money"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            {{s}}
+                                        </div>
+                                        <div class="desc">
+                                            Solde
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <a class="dashboard-stat dashboard-stat-light green-meadow" href="javascript:;">
+                                    <div class="visual">
+                                        <i class="icon-wallet"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            {{rv}}
+                                        </div>
+                                        <div class="desc">
+                                            Revenu
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-bar-chart font-red-haze"></i>
+                                        <span class="caption-subject bold uppercase font-red-haze"> Statistique Solde Mois : {{m}}</span>
+                                    </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse">
+                                        </a>
+                                        <a href="javascript:;" class="fullscreen">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div id="chart_2" class="chart">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-bar-chart font-red-haze"></i>
+                                        <span class="caption-subject bold uppercase font-red-haze"> Statistique Dépense de l'année : {{y}}</span>
+                                    </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse">
+                                        </a>
+                                        <a href="javascript:;" class="fullscreen">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div id="chart_5" class="chart" style="height: 400px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <script src="{{ asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-migrate.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.cokie.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/scripts/metronic.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/admin/layout2/scripts/layout.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/admin/layout2/scripts/demo.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.resize.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.pie.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.stack.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.crosshair.min.js')}}"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.categories.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/typeahead/handlebars.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/amcharts.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/serial.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/pie.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/radar.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/light.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/patterns.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/chalk.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/ammap/ammap.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/ammap/maps/js/worldLow.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('assets/global/plugins/amcharts/amstockcharts/amstock.js')}}" type="text/javascript"></script>
+        <script>
+            jQuery(document).ready(function () {
+                Metronic.init();
+                Layout.init();
+                Demo.init();
+                initChartSample5();
+                ChartsFlotcharts.init();
+                ChartsFlotcharts.initCharts();
+            });
+            var initChartSample5 = function() {
+		        var chart = AmCharts.makeChart("chart_5", {
+		            "theme": "light",
+		            "type": "serial",
+		            "startDuration": 2,
+
+		            "fontFamily": 'Open Sans',
+		            "color":    '#888',
+		            "dataProvider": [
+                                {
+		                "Mois": "Janvier",
+		                "Montant":{{smr[0]}},
+		                "color": "#FF0F00"
+		            }, {
+		                "Mois": "Février",
+		                "Montant": {{smr[1]}},
+		                "color": "#FF6600"
+		            },{
+		                "Mois": "Mars",
+		                "Montant": {{smr[2]}},
+		                "color": "#F8FF01"
+		            }, {
+		                "Mois": "Avril",
+		                "Montant": {{smr[3]}},
+		                "color": "#04D215"
+		            }, {
+		                "Mois": "Mai",
+		                "Montant": {{smr[4]}},
+		                "color": "#0D8ECF"
+		            }, {
+		                "Mois": "Juin",
+		                "Montant": {{smr[5]}},
+		                "color": "#0D52D1"
+		            }, {
+		                "Mois": "Juillet",
+		                "Montant": {{smr[6]}},
+		                "color": "#2A0CD0"
+		            }, {
+		                "Mois": "Aout",
+		                "Montant": {{smr[7]}},
+		                "color": "#8A0CCF"
+		            },
+		             {
+		                "Mois": "Septembre",
+		                "Montant": {{smr[8]}},
+		                "color": "#DDDDDD"
+		            }, {
+		                "Mois": "Octobre",
+		                "Montant": {{smr[9]}},
+		                "color": "#999999"
+		            }, {
+		                "Mois": "Novembre",
+		                "Montant": {{smr[10]}},
+		                "color": "#333333"
+		            }, {
+		                "Mois": "Décembre",
+		                "Montant": {{smr[11]}},
+		                "color": "#000000"
+		            }
+		            
+		            ],
+		            "valueAxes": [{
+		                "position": "left",
+		                "axisAlpha": 0,
+		                "gridAlpha": 0
+		            }],
+		            "graphs": [{
+		                "balloonText": "[[category]]: <b>[[value]]</b>",
+		                "colorField": "color",
+		                "fillAlphas": 0.85,
+		                "lineAlpha": 0.1,
+		                "type": "column",
+		                "topRadius": 1,
+		                "valueField": "Montant"
+		            }],
+		            "depth3D": 40,
+		            "angle": 30,
+		            "chartCursor": {
+		                "categoryBalloonEnabled": false,
+		                "cursorAlpha": 0,
+		                "zoomable": false
+		            },
+		            "categoryField": "Mois",
+		            "categoryAxis": {
+		                "gridPosition": "start",
+		                "axisAlpha": 0,
+		                "gridAlpha": 0
+
+		            },
+		            "exportConfig": {
+		                "menuTop": "20px",
+		                "menuRight": "20px",
+		                "menuItems": [{
+		                    "icon": '/lib/3/images/export.png',
+		                    "format": 'png'
+		                }]
+		            }
+		        }, 0);
+
+		        $('#chart_5').closest('.portlet').find('.fullscreen').click(function() {
+		            chart.invalidateSize();
+		        });
+		    }       
+            var ChartsFlotcharts = function() {
+                    return {
+                    //main function to initiate the module
+
+                    init: function() {
+
+                    Metronic.addResizeHandler(function() {
+                        Charts.initPieCharts();
+                        });
+                    },
+                   initCharts: function() {
+
+            if (!jQuery.plot) {
+                return;
+            }
+
+            function chart2() {
+                if ($('#chart_2').size() != 1) {
+                    return;
+                }
+                var solde = [
+                    [1, {{sm[0]}}],
+                    [2, {{sm[1]}}],
+                    [3, {{sm[2]}}],
+                    [4, {{sm[3]}}],
+                    [5, {{sm[4]}}],
+                    [6, {{sm[5]}}],
+                    [7, {{sm[6]}}],
+                    [8, {{sm[7]}}],
+                    [9, {{sm[8]}}],
+                    [10, {{sm[9]}}],
+                    [11, {{sm[10]}}],
+                    [12, {{sm[11]}}],
+                    [13, {{sm[12]}}],
+                    [14, {{sm[13]}}],
+                    [15, {{sm[14]}}],
+                    [16, {{sm[15]}}],
+                    [17, {{sm[16]}}],
+                    [18, {{sm[17]}}],
+                    [19, {{sm[18]}}],
+                    [20, {{sm[19]}}],
+                    [21, {{sm[20]}}],
+                    [22, {{sm[21]}}],
+                    [23, {{sm[22]}}],
+                    [24, {{sm[23]}}],
+                    [25, {{sm[24]}}],
+                    [26, {{sm[25]}}],
+                    [27, {{sm[26]}}],
+                    [28, {{sm[27]}}],
+                    [29, {{sm[28]}}],
+                    [30, {{sm[29]}}],
+                    [31, {{sm[30]}}]
+                ];
+
+                var plot = $.plot($("#chart_2"), [{
+                    data: solde,
+                    label: "Solde",
+                    lines: {
+                        lineWidth: 1,
+                    },
+                    shadowSize: 0
+                }], {
+                    series: {
+                        lines: {
+                            show: true,
+                            lineWidth: 2,
+                            fill: true,
+                            fillColor: {
+                                colors: [{
+                                    opacity: 0.05
+                                }, {
+                                    opacity: 0.01
+                                }]
+                            }
+                        },
+                        points: {
+                            show: true,
+                            radius: 3,
+                            lineWidth: 1
+                        },
+                        shadowSize: 2
+                    },
+                    grid: {
+                        hoverable: true,
+                        clickable: true,
+                        tickColor: "#eee",
+                        borderColor: "#eee",
+                        borderWidth: 1
+                    },
+                    colors: ["#37b7f3"],
+                    xaxis: {
+                        ticks: 11,
+                        tickDecimals: 0,
+                        tickColor: "#eee",
+                    },
+                    yaxis: {
+                        ticks: 11,
+                        tickDecimals: 0,
+                        tickColor: "#eee",
+                    }
+                });
+
+
+                function showTooltip(x, y, contents) {
+                    $('<div id="tooltip">' + contents + '</div>').css({
+                        position: 'absolute',
+                        display: 'none',
+                        top: y + 5,
+                        left: x + 15,
+                        border: '1px solid #333',
+                        padding: '4px',
+                        color: '#fff',
+                        'border-radius': '3px',
+                        'background-color': '#333',
+                        opacity: 0.80
+                    }).appendTo("body").fadeIn(200);
+                }
+
+                var previousPoint = null;
+                $("#chart_2").bind("plothover", function(event, pos, item) {
+                    $("#x").text(pos.x);
+                    $("#y").text(pos.y);
+
+                    if (item) {
+                        if (previousPoint != item.dataIndex) {
+                            previousPoint = item.dataIndex;
+
+                            $("#tooltip").remove();
+                            var x = item.datapoint[0],
+                                y = item.datapoint[1];
+
+                            showTooltip(item.pageX, item.pageY, item.series.label + " du " + x+"-{{m}}-{{y}}" + " = " + y);
+                        }
+                    } else {
+                        $("#tooltip").remove();
+                        previousPoint = null;
+                    }
+                });
+            }
+            chart2();
+
+        }
+                    };
+                    }();
+        </script>
+    </body>
+</html>
+{# empty Twig template #}

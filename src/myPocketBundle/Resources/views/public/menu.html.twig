@@ -1,0 +1,74 @@
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="start ">
+                <a href="{{ path('my_pocket_acceuilpage')}}">
+                    <i class="icon-home"></i>
+                    <span class="title">Accueil</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="icon-basket"></i>
+                    <span class="title">Dépense</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{ path('my_pocket_nouvelledepensepage')}}">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            Nouvelle Dépense</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('my_pocket_listedepensepage')}}">
+                            <i class="icon-basket"></i>
+                            Liste des Dépenses</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="icon-wallet"></i>
+                    <span class="title">Revenu</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{ path('my_pocket_nouveaurevenupage')}}">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            Nouveau Revenu</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('my_pocket_listerevenupage')}}">
+                            <i class="icon-wallet"></i>
+                            Liste des Revenus</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="icon-bar-chart"></i>
+                    <span class="title">Statistique</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{ path('my_pocket_chartdepensepage')}}">
+                            <i class="icon-basket"></i>
+                            Dépense</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('my_pocket_chartrevenupage')}}">
+                            <i class="icon-wallet"></i>
+                            Revenu</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('my_pocket_chartsoldepage')}}">
+                            <i class="fa fa-money"></i>
+                            Solde</a>
+                    </li>
+                </ul>
+            </li>            
+        </ul>
+    </div>
+</div>
